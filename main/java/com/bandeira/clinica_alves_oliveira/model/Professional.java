@@ -1,23 +1,16 @@
 package com.bandeira.clinica_alves_oliveira.model;
 
-import jakarta.persistence.Query;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
+import java.util.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@Entity(name = "professionals")
 @Table(name = "professionals")
+@Entity(name = "professionals")
 public class Professional {
 
     @Id

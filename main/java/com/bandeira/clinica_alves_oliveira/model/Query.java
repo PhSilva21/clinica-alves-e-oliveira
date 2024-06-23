@@ -1,5 +1,6 @@
 package com.bandeira.clinica_alves_oliveira.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +30,27 @@ public class Query {
     private StatusQuery statusQuery;
 
     private Integer patientCel;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "professional_id")
+    private Professional professional;
+
+    public Query(String namePatient, String nameProfessional, Patient patient, Professional professional
+            , LocalDateTime time, Integer duration, StatusQuery statusQuery, Integer patientCel) {
+        this.namePatient = namePatient;
+        this.nameProfessional = nameProfessional;
+        this.patient = patient;
+        this.professional = professional;
+        this.time = time;
+        this.duration = duration;
+        this.statusQuery = statusQuery;
+        this.patientCel = patientCel;
+    }
 }
+
