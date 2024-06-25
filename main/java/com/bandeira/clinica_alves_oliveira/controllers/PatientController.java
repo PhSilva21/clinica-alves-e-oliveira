@@ -35,13 +35,13 @@ public class PatientController {
         return patientService.birthDays();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/update/{id}")
     public ResponseEntity<Void> updatePatient(@PathVariable ("id") Long id,
                                                    @RequestBody UpdatePatientDTO updatePatientDTO) throws IOException {
         patientService.update(id, updatePatientDTO);
         return ResponseEntity.noContent().build();
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable ("id") Long id){
         patientService.deleteById(id);
         return ResponseEntity.ok().build();
